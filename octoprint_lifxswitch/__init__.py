@@ -51,7 +51,7 @@ class LifxSwitchPlugin(octoprint.plugin.StartupPlugin,
             "power": "off"
         }
 
-        response = requests.put('https://api.lifx.com/v1/lights/all/state', data=payload, headers=headers)
+        response = requests.put('https://api.lifx.com/v1/lights/id:'+str(light_id)+'/state', data=payload, headers=headers)
 
         self._logger.info("Turning off light")          
 
@@ -72,7 +72,7 @@ class LifxSwitchPlugin(octoprint.plugin.StartupPlugin,
             "power": "on"
         }
 
-        response = requests.put('https://api.lifx.com/v1/lights/all/state', data=payload, headers=headers)
+        response = requests.put('https://api.lifx.com/v1/lights/id:'+str(light_id)+'/state', data=payload, headers=headers)
 
         self._logger.info("Turning on light")     
 
